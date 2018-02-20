@@ -4,6 +4,8 @@ This project shows a super easy way to get started using Digital LED strips with
 
 The code covered in this repository utilizes [Home Assistant's MQTT JSON Light Component](https://home-assistant.io/components/light.mqtt_json/) and an ESP8266 microcontroller. 
 
+Also the code covered in this repository utilizes [ESP MQTT JSON Digital LEDs](https://github.com/bruhautomation/ESP-MQTT-JSON-Digital-LEDs).
+
 #### Supported Features Include
 - RGB Color Selection
 - Brightness 
@@ -36,6 +38,8 @@ This code also supports remote uploading to the ESP8266 using Arduino's OTA libr
 - [Just a few wires 6 meters 2 x 1.5mm]
 
 #### Sonoff Basic Pinout
+* Sonoff Basic AC out connected to AC/DC Power Supply
+
 * GPIO 14 - LED strip data
 * GND - LED strip GND
 
@@ -45,10 +49,6 @@ This code also supports remote uploading to the ESP8266 using Arduino's OTA libr
 
 ![](http://tinkerman.cat/wp-content/uploads/2016/06/pinout_back.jpg)
 ![](https://cdn.instructables.com/F8Q/0U89/J1WEQK7J/F8Q0U89J1WEQK7J.MEDIUM.jpg)
-
-#### Wiring Diagram
-![alt text](https://github.com/bruhautomation/ESP-MQTT-Digital-LEDs/blob/master/ESP%20MQTT%20Digital%20LEDs%20Wiring%20Diagram.png?raw=true "Wiring Diagram")
-
 
 #### SAMPLE MQTT PAYLOAD:
 
