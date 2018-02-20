@@ -1,0 +1,58 @@
+mqtt:
+  broker: your.mqtt.ip.address
+  port: 1883
+  client_id: home-assistant-1
+  username: name
+  password: pass
+
+light:
+  - platform: mqtt_json
+    name: "WS2812 Strip"
+    state_topic: "led/ws2812"
+    command_topic: "led/ws2812/set"
+    effect: true
+    effect_list:
+      - bpm
+      - candy cane  
+      - confetti  
+      - cyclon rainbow  
+      - dots  
+      - fire  
+      - glitter  
+      - juggle  
+      - lightning
+      - noise  
+      - police all  
+      - police one  
+      - rainbow  
+      - rainbow with glitter  
+      - ripple  
+      - sinelon  
+      - solid  
+      - twinkle  
+    brightness: true
+    flash: true
+    rgb: true
+    optimistic: false
+    qos: 0
+
+input_number:
+  animation_speed:
+    name: Animation Speed
+    initial: 60
+    min: 1
+    max: 150
+    step: 1
+
+automation: 
+  - alias: "Animation Speed"
+    initial_state: True
+    hide_entity: True
+    trigger:
+      - platform: state
+        entity_id: input_number.animation_speed
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "led/ws2812/set"
+          payload: '{"transition":{{ trigger.to_state.state | int }}}'
