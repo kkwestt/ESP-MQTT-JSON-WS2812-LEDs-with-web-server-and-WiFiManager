@@ -1,4 +1,4 @@
-# ESP MQTT JSON Digital LEDs with web server and WiFiManager
+# ESP MQTT JSON WS2812 LEDs with web server and WiFiManager
 
 This project shows a super easy way to get started using Digital LED strips with [Home Assistant](https://home-assistant.io/), a sick, open-source Home Automation platform that can do just about anything. 
 
@@ -35,7 +35,16 @@ This code also supports remote uploading to the ESP8266 using Arduino's OTA libr
 - [220 AC/DC 5v Power Supply 20A 100W]
 - [Just a few wires 6 meters 2 x 1.5mm]
 
+#### Sonoff Basic Pinout
+* GPIO 14 - LED strip data
+* GND - LED strip GND
 
+* GPIO 4 - Second status led (Second image must solder wire to pin on ESP chip)
+* GPIO 0 - BUTTON pin 
+* GPIO 12 - RELAY pin 
+
+![](http://tinkerman.cat/wp-content/uploads/2016/06/pinout_back.jpg)
+![](https://cdn.instructables.com/F8Q/0U89/J1WEQK7J/F8Q0U89J1WEQK7J.MEDIUM.jpg)
 
 #### Wiring Diagram
 ![alt text](https://github.com/bruhautomation/ESP-MQTT-Digital-LEDs/blob/master/ESP%20MQTT%20Digital%20LEDs%20Wiring%20Diagram.png?raw=true "Wiring Diagram")
