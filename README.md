@@ -15,7 +15,7 @@ Also the code covered in this repository utilizes [ESP MQTT JSON Digital LEDs](h
 - Effects with Animation Speed
 - Over-the-Air (OTA) Upload from the ArduinoIDE!
 - WiFi Manager for first connection settings
-- Web simple web server 
+- Litle web server 
 
 Some of the effects incorporate the currrently selected color (sinelon, confetti, juggle, etc) while other effects use pre-defined colors. You can also select custom transition speeds between colors. The transition variable in Home Assistant (HA) also functions to control the animation speed of the currently running animation. The input_slider and automation in the HA configuration example allow you to easily set a transition speed from HA's user interface without needing to use the Services tool. 
 
@@ -40,7 +40,7 @@ This code also supports remote uploading to the ESP8266 using Arduino's OTA libr
 #### Sonoff Basic Pinout
 * Sonoff Basic AC out connected to AC/DC Power Supply
 
-* GPIO 14 - LED strip data
+* GPIO 14 - LED strip DATA
 * GND - LED strip GND
 
 * GPIO 4 - Second RED status led (must solder wire from second pin on bicolor led to pin on ESP chip)
