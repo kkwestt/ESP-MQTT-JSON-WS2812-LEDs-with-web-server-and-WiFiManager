@@ -43,12 +43,13 @@ This code also supports remote uploading to the ESP8266 using Arduino's OTA libr
 * GPIO 14 - LED strip data
 * GND - LED strip GND
 
-* GPIO 4 - Second status led (Second image must solder wire to pin on ESP chip)
+* GPIO 4 - Second RED status led (must solder wire from second pin on bicolor led to pin on ESP chip)
 * GPIO 0 - BUTTON pin 
 * GPIO 12 - RELAY pin 
 
-![](http://tinkerman.cat/wp-content/uploads/2016/06/pinout_back.jpg)
-![](https://cdn.instructables.com/F8Q/0U89/J1WEQK7J/F8Q0U89J1WEQK7J.MEDIUM.jpg)
+![gpio 14](http://evertdekker.com/wp/wp-content/gallery/sonoff/p1010285.jpg)
+![pinout](http://tinkerman.cat/wp-content/uploads/2016/06/pinout_back.jpg)
+![pinout](https://cdn.instructables.com/F8Q/0U89/J1WEQK7J/F8Q0U89J1WEQK7J.MEDIUM.jpg)
 
 #### SAMPLE MQTT PAYLOAD:
 
