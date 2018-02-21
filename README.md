@@ -25,7 +25,7 @@ The default speed for the effects is hard coded and is set when the light is fir
 This code also supports remote uploading to the ESP8266 using Arduino's OTA library. To utilize this, you'll need to first upload the sketch using the traditional USB method. However, if you need to update your code after that, your WIFI-connected ESP chip should show up as an option under Tools -> Port -> Porch at your.ip.address.xxx. More information on OTA uploading can be found [here](http://esp8266.github.io/Arduino/versions/2.0.0/doc/ota_updates/ota_updates.html). Note: You cannot access the serial monitor over WIFI at this point.  
 
 #### Web interface
-![Web interface](https://github.com/kkwestt/ESP-MQTT-JSON-WS2812-LEDs-with-web-server-and-WiFiManager/blob/master/web.jpg)
+![Web interface](https://raw.githubusercontent.com/kkwestt/ESP-MQTT-JSON-WS2812-LEDs-with-web-server-and-WiFiManager/master/web.jpg)
 
 #### Demo Video
 [![Demo Video](http://i.imgur.com/cpW2JAX.png)](https://www.youtube.com/watch?v=DQZ4x6Z3678 "Demo - RGB Digital LED Strip controlled using ESP, MQTT, and Home Assistant")
@@ -49,8 +49,10 @@ This code also supports remote uploading to the ESP8266 using Arduino's OTA libr
 * GPIO 0 - BUTTON pin 
 * GPIO 12 - RELAY pin 
 
-![gpio 14](http://evertdekker.com/wp/wp-content/gallery/sonoff/p1010285.jpg)
-![pinout](http://tinkerman.cat/wp-content/uploads/2016/06/pinout_back.jpg)
+#### Wires
+![Wires](https://raw.githubusercontent.com/kkwestt/ESP-MQTT-JSON-WS2812-LEDs-with-web-server-and-WiFiManager/master/wires.jpg)
+
+![gpio 4](http://evertdekker.com/wp/wp-content/gallery/sonoff/p1010285.jpg)
 ![pinout](https://cdn.instructables.com/F8Q/0U89/J1WEQK7J/F8Q0U89J1WEQK7J.MEDIUM.jpg)
 
 #### SAMPLE MQTT PAYLOAD:
