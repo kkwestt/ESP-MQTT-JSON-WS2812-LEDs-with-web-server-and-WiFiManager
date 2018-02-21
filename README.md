@@ -50,7 +50,7 @@ This code also supports remote uploading to the ESP8266 using Arduino's OTA libr
 * GPIO 12 - RELAY pin 
 
 #### Wires
-![Wires](https://raw.githubusercontent.com/kkwestt/ESP-MQTT-JSON-WS2812-LEDs-with-web-server-and-WiFiManager/master/wires.jpg)
+![Wires](https://raw.githubusercontent.com/kkwestt/ESP-MQTT-JSON-WS2812-LEDs-with-web-server-and-WiFiManager/master/wires_example.jpg)
 
 ![gpio 4](http://evertdekker.com/wp/wp-content/gallery/sonoff/p1010285.jpg)
 ![pinout](https://cdn.instructables.com/F8Q/0U89/J1WEQK7J/F8Q0U89J1WEQK7J.MEDIUM.jpg)
