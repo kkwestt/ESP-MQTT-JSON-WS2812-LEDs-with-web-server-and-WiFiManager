@@ -1197,29 +1197,52 @@ void temp2rgb(unsigned int kelvin) {
 /********************************** START WEB PAGE ******************************************/
 
 String getPage() {
-
-  StaticJsonBuffer<BUFFER_SIZE> jsonBuffer;
-
-  JsonObject& root = jsonBuffer.createObject();
-
-  root["state"] = (stateOn) ? on_cmd : off_cmd;
-  root["effect"] = effectString.c_str();
-  root["brightness"] = brightness;
-  root["transition"] = transitionTime;
-  JsonObject& color = root.createNestedObject("color");
-  color["r"] = red;
-  color["g"] = green;
-  color["b"] = blue;
-  char buffer[root.measureLength() + 1];
-  root.printTo(buffer, sizeof(buffer));
+  IPAddress ip = WiFi.localIP();
 
   String page = "<!DOCTYPE html><html><head><meta http-equiv='refresh' content='5' name='viewport' content='width=device-width, initial-scale=1' name='mobile-web-app-capable' content='yes'/>";
-  page += "<style> body{background-color:#ddd;font-family:Arial,Helvetica,Sans-Serif;Color:#333;} button{width:50px;} </style>";
+  page += F("<style>body{background-color:#ddd; font-family:Arial,Helvetica,Sans-Serif; Color:#333;}");
+  page += F("button{width:50px;}");
+  page += F("table {color:black;}");
+  page += F("th {padding:7px; background-color:#111; color:#fff;}");
+  page += F("td {padding:4px;}</style>");
   page += "<title>ESP8266 WS2812 LED Strip server</title></head><body>";
   page += "<br><h1 align=center>ESP8266 WS2812 LED Strip server</h1><br>";
-  page += "<h2 align=center>Status: <form action='/' method='POST'><button type='button submit' name='toggle0' value='toggle0' >"; if (stateOn == true) page += "ON"; else page += "OFF"; page += "</button></form></h2><br>";
-  page += "<h2 align=center>"; page += buffer; page += "</h2>";
-  page += "<br><br><p align=center><a href='http://taubetele.com'>http://taubetele.com</a>  |  <a href='/reboot'>Reboot</a>  |  RSSI: "; page += WiFi.RSSI(); page += " dBm</p>";
+
+  page += F("<table align=center width=600><TH>LED Info<TH>Value");
+  page += F("<TR><TD>State:<TD>"); page += F("<form action='/' method='POST'><button type='button submit' name='toggle0' value='toggle0' >"); page += (stateOn) ? on_cmd : off_cmd; page += F("</button></form>");
+  page += F("<TR><TD>Effect:<TD>"); page += effectString.c_str();
+  page += F("<TR><TD>Brightness:<TD>"); page += brightness;
+  page += F("<TR><TD>Transition:<TD>"); page += transitionTime;
+  page += F("<TR><TD>Color:<TD>"); page += red; page += F(", "); page += green; page += F(", "); page += blue;
+
+  page += F("<TR><TD>&nbsp;<TD>&nbsp;");
+
+  page += F("<TR><TH>System Info<TH>&nbsp;");
+  char str[20];
+  sprintf_P(str, PSTR("%u.%u.%u.%u"), ip[0], ip[1], ip[2], ip[3]);
+  page += F("<TR><TD>IP:<TD>");
+  page += str;
+
+  page += F("<TR><TD>WiFi RSSI:<TD>"); page += WiFi.RSSI(); page += F(" dBm");
+  page += F("<TR><TD>Core Version:<TD>"); page += ESP.getCoreVersion();
+  page += F("<TR><TD>ESP Chip ID:<TD>"); page += ESP.getChipId();
+  page += F("<TR><TD>Flash Chip ID:<TD>"); page += ESP.getFlashChipId();
+  page += F("<TR><TD>Flash Size:<TD>"); page += ESP.getFlashChipRealSize() / 1024; page += F(" kB");
+  page += F("<TR><TD>Sketch Size/Free:<TD>"); page += ESP.getSketchSize() / 1024; page += F(" kB / "); page += ESP.getFreeSketchSpace() / 1024; page += F(" kB");
+
+  page += F("<TR><TD>Uptime:<TD>");
+  char strUpTime[40];
+  int minutes = millis() / 60000;
+  int days = minutes / 1440;
+  minutes = minutes % 1440;
+  int hrs = minutes / 60;
+  minutes = minutes % 60;
+  sprintf_P(strUpTime, PSTR("%d days %d hours %d minutes"), days, hrs, minutes);
+  page += strUpTime;
+
+  page += F("<TR><TD>Restart device:<TD><a href = '/reboot'>REBOOT</a >");
+  page += F("<TR><TD>Author:<TD><a href='http://taubetele.com'>taubetele.com</a>");
+  page += F("</table>");
   page += "</body></html>";
 
   return page;
